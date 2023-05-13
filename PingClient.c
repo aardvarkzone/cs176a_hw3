@@ -31,8 +31,6 @@ int main(int argc, char *argv[]) {
        exit(0);
     }
 
-    char* address = argv[1];
-    char* port_number = argv[2];
 
     int sock = 0;
     unsigned int length = 0;
@@ -58,7 +56,7 @@ int main(int argc, char *argv[]) {
     timeout.tv_sec = 1;
    
     // identify the server
-    host_name = gethostbyname(address);
+    host_name = gethostbyname(argv[1]);
     if(host_name == NULL) { error("ERROR unknown host"); }
 
     // timeout after 1 second
@@ -67,7 +65,7 @@ int main(int argc, char *argv[]) {
 
     server.sin_family = AF_INET;
     bcopy((char*)host_name->h_addr, (char*)&server.sin_addr, host_name->h_length);
-    server.sin_port = htons(atoi(port_number));
+    server.sin_port = htons(atoi(argv[2]));
 
     // UDP length requirement
     length = sizeof(struct sockaddr_in);
