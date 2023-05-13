@@ -122,14 +122,18 @@ int main(int argc, char *argv[]) {
     printf("--- ");
     printf(argv[1]);
     printf(" ping statistics ---\n");
+    if (counter == 0) {
+        printf("10 packets transmitted, %d received, %d%% packet loss");
+    } else {
     printf("10 packets transmitted, %d received, %d%% packet loss rtt min/avg/max = %.3f %.3f %.3f ms\n", 
             counter, 
             (10 - counter) * 10, 
             min, 
             avg, 
             max);
-
+    }
     // close UDP socket
     close(sock);
     return 0;
 }
+
