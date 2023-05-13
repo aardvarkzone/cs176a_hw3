@@ -121,7 +121,7 @@ int main(int argc, char *argv[]) {
     double avg = sum / counter; // only averages valid roundtriptimes
 
     printf("--- ping statistics ---\n");
-    printf("10 packets transmitted, %d received, %d%% packet loss rtt min/avg/max = %.3f %.3f %.3f ms\n", 
+    printf("10 packets transmitted, %d received, %d%% packet loss\nrtt min/avg/max = %.3f %.3f %.3f ms\n", 
             counter, 
             (10 - counter) * 10, 
             min, 
