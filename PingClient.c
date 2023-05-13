@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
     timeout.tv_sec = 1;
    
     // identify the server
-    host_name = gethostbyname(argv[1]);
+    host_name = gethostbyname(address);
     if(host_name == NULL) { error("ERROR unknown host"); }
 
     // timeout after 1 second
@@ -95,7 +95,7 @@ int main(int argc, char *argv[]) {
             roundtrip[i - 1] = rtt_sample;
 
             printf("PING received from %s: seq#=%d time=%.3f ms\n", 
-                address, 
+                argv[1], 
                 i, 
                 rtt_sample);
         }
